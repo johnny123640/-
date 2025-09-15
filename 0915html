@@ -1,0 +1,19 @@
+<html>
+<head>
+ <title>HTML1ul標籤簡介</title>   
+</head>
+<body>
+<!--檔案路徑:絕對路徑,相對路徑
+    絕對路徑:檔案在電腦裡的絕對位置 c:/.....
+    相對路徑:相對於目前檔案的檔案路徑
+-->
+
+<img scr="" width="200px" alt="替代文字" title="標題">
+<HR>
+<a href="">外部超連結</a>
+<a href="">內部超連結(書籤)</a>
+
+
+
+</body>
+    </html>    
