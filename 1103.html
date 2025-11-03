@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>字型,漸變及陰影</title>
+    <style>
+        div {
+            margin:20px 0;
+        }
+        #d1{
+            width: 200PX;
+            height: 200px;
+            background-color: red;
+            transition: width 1s, background 2s;
+        }
+        #d1:hover{
+            width: 400PX;
+            height: 200px;
+            background-color: yellow;
+        }
+        body {
+            font-size: 20px;
+        }
+        #d2 {
+            margin:10px 0px;
+            font-size: 20px;/*px pt em vw vh*/
+            font-family: sans-serif;/*無襯線體,黑體,圓體*/
+        }
+        #d3 {
+            margin:10px 0px;
+            font-size: 20px;/*px pt em vw vh*/
+            font-family: sans-serif;/*襯線體,明體,楷體,橫細豎粗*/
+            font-weight: normal;
+        }
+        #d4 {
+            margin:10px 0px;
+            font-size: 20px;/*px pt em vw vh*/
+            font-family: sans-serif;/*等寬字體*/
+        }
+        #d5{
+            width: 200px;
+            box-shadow: red 2px 5px 30px 10px;
+        }
+        #d6{
+            margin: 50px 0px;
+            width: 200px;
+            color: white;
+            text-shadow: red 0px 0px 3px;
+        }
+        #d7:hover{
+            width: 400px;
+        }
+        #d7{
+            width: 200px;
+            height:50px;
+            background: linear-gradient(90deg, red,white,blue);
+            transition: width 2s;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+    <div id="d3">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+    <div id="d4">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+    <div id="d5">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+    <div id="d6">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+    <div id="d7">abcdefg<br>ABCDEFG<br>鳳新高中</div>
+</body>
+
+</html>
