@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>翻牌記憶遊戲</title>
+    <style>
+        #board {
+            width:300px;
+            display: grid;
+            grid: repeat(3,90px) / repeat(4,90px);
+        }
+        .card {
+            width:80px;
+        }
+
+    </style>
+    <script>
+        function pickCard() {
+            var card=event.target;
+            if(p1<0) {
+                p1=card.num;
+                card.scr=`pic/${p1.num}/png`;
+                return;
+            }
+            p2=card.num;
+            p2.scr=`pic/${p2.num}.png`;
+            if(p1.num == p2.num) {
+                pairs++;
+                if(pairs<6) {
+                    p1=-1; p2=-1;
+
+                } 
+                
+            
+            setTimeout(()=>{
+                p1.scr=`pic/Q.png`;
+                p2.scr=`pic/Q.png`;
+                p1=-1; p2=-1
+            
+            },1000)}
+            else {
+                p1=-1; p2=-1;
+            }
+
+        }
+
+        function gameStart() {}
+        pairs=0
+            var cards=[1,1,2,2,3,3,4,4,5,5,6,6];
+            cards.sort(()=>{return Math.random()-0.5});
+            var board=document.getElementById("board");
+            Array.from(board.children).forEach((a)=>{board.removeChild(a);});
+            cards.forEach((n)=>{
+          
+            var a=document.createElement("img");
+            a.className="card";
+            a.scr="pic/Q.png";
+            a.num=n;
+            a.addEventListener("click",pickCard)
+            board.appendChild(a);
+        });
+        setTimeout(()=>{;
+            Array.form(document.getElementsByClassName("card")).forEach((a)=>{
+                a.scr="pick/Q.png";
+            });
+        },3000);
+    </script>
+
+
+</head>
+<body>
+    <div id="board">
+        <img class="card" src="pick/Q.png">
+    </div>
+    <button onclick="gameStart();">遊戲開始</button>
+</body>
+</html>
