@@ -9,7 +9,7 @@
             background: url("pic/grass.jpg");
             background-size: 30px;
             /*background-repeat: repeat;*/
-            animation: bg_move 1s linear infinite;
+            animation: bg_move 3s linear infinite;
             position: relative;
             }
             @keyframes bg_move {
@@ -18,13 +18,14 @@
                 100% {background-position: 0% 0%;}
             }
             #role {
-                width: 100px;
+                width: 48px;
                 height: 73px;
                 background-image: url("pic/sprite.png");
-                background-position:-144px -432px ;
-                animation: walking 0.7s step(3) infinite;
+                background-position: -144px -288px ;
+                animation: walking 0.7s steps(3) infinite;
                 position: absolute;
-                border: 1px solid red;
+
+                /*border: 1px solid red;*/
             }
             @keyframes walking {
                 0% {background-position-x: -144px;}
@@ -40,13 +41,13 @@
             if(event.key=="ArrowDown") {
                 role.style.backgroundPositionY="-288px";
                 if(role.posY < 728)role.posY++;
-            }else if(event.key=="ArrowDown") {
+            }else if(event.key=="ArrowLeft") {
                 role.style.backgroundPositionY="-360px";
-                if(role.posX > 0) role.posX
-            }else if(event.key=="ArrowDown") {
+                if(role.posX > 0) role.posX--;
+            }else if(event.key=="ArrowRight") {
                 role.style.backgroundPositionY="-432px";
                 if(role.posY < 752)role.posX++;
-            }else if(event.key=="ArrowDown") {
+            }else if(event.key=="ArrowUp") {
                 role.style.backgroundPositionY="-504px";
                 if(role.posY > 0)role.posY--;
             }
@@ -69,19 +70,19 @@
 
 
 </head>
-<body>
-    <div id="map">
+<body onload="page_init();"onkeydown="mykeydown()";>     
+<div id="map">
         <div id="role"></div>
     </div>
 
+
+
+
+
+
+
+
+
+
 </body>
-
-
-
-
-
-
-
-
-
 </html>
