@@ -8,8 +8,8 @@
                 background:url("pic/bg_stars.jpg");
                 animation: bg_move 2s linear infinite;
             }
-            @keyframes bg_move {
-                0%{background-position-y: 0px;}
+            @keyframes bg_stars {
+                0%{background-position-x: 0px;}
                 100% {background-position-y: 216px;}
             }
         
@@ -92,8 +92,8 @@
                 else {
                     var data=JSON.parse(ranking);
                     if(data.length<5) {
-                        data.push({"name":})
-                    }
+                        data.push({"name":
+                    })
                 }
                 data=[{"name":"XXX","score":100,"time":64},{"name":"YYY"}]
                 sessionStorage.setItem("rank",data);
@@ -197,7 +197,29 @@
                     b.move=setInterval(bullet_move,10,b);
                 }
 
+                function get_ranking() {
+                    if(ranking) {
+                        var data=Array.from(JSON.parse(ranking));
+                        data.forEach(()=>{
+                            var li=document.createElement("li");
+                            li.innerHTML=`<span style="width:150px">${x.name}</span`
 
+                        })
+                    }
+                    
+                }
+                function do_ranking() {
+                    var ranking=sessionStorage.getItem("ranking");
+                    if(ranking==null) {
+                 ranking=[];
+                 ranking.push({"name":prompt("請輸入你的名稱:"),"score":game_time});
+                 sessionStorage.setItem("rank",JSON.stringify(ranking));
+                    }
+                }
+                
+                
+               
+                
 
         </script>
     </head>
@@ -214,6 +236,11 @@
             <div class="bullet"></div>
 
 
+        </div>
+        <div>
+            
+
+            
         </div>
         
 
