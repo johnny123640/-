@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按鍵比速度遊戲</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .score {
+            font-size: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>按鍵比速度遊戲</h2>
+<p>空白建 V.S 向下鍵(10秒)</p>
+<button onclick="startGame()">開始遊戲</button>
+<div class="score">空白鍵次數: <span id="space">0</span></div>
+<div class="score">向下鍵次數: <span id="down">0</span></div>
+
+<h3 id="time">尚未開始</h3>
+<h2 id="result"></h2>
+
+<script>
+let spaceCount=0;
+let downCount=0;
+let time= 10;
+let playing=false;
+let timer;
+
+function startGame(){
+    spaceCount=0;
+    downCount=0;
+    time=10;
+    playing=true;
+    document.getElementById("space").textContent=0;
+    document.getElementById("down").textContent=0;
+    document.getElementById("result").textContent="";
+    document.getElementById("time").textContent="開始 !";
+    timer = setInterval(() => {
+        time--;
+        document.getElementById("time").textContent="剩下" + time + "秒";
+        if(time===0) {
+            clearInterval(timer)
+            playing=false;
+            showResult();
+        }
+    },1000);
+
+
+
+}
+    document.addEventListener("keydown",
+    function(e) {
+        if (!playing) return;
+        if(e.code === "Space") {
+            e.preventDefault();
+            spaceCount++;
+
+            document.getElementById("space").textContent=spaceCount;
+        }
+        if (e.key === "ArrowDown") {
+            downCount++
+            
+            document.getElementById("down").textContent=downCount;
+        }
+    })
+
+    function showResult() {
+        if(spaceCount > downCount) {
+            result.textContent = "空白鍵贏了 !";
+        } else if (downCount > spaceCount) {
+            result.textContent = "向下鍵贏了 !";
+        } else{
+            result.textContent = "平手 !";
+        }
+    }
+
+</script>
+    </body>
+</html>
